@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Playfair Display", serif;
+  
+  --color-gallery-beige: #f5f5f0;
+  --color-gallery-dark: #1a1a1a;
+  --color-gallery-accent: #8c7851; /* Muted gold/brass */
+}
+
+@layer base {
+  html, body {
+    font-family: var(--font-sans) !important;
+    background-color: var(--color-gallery-beige);
+    color: var(--color-gallery-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading) !important;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+
+  button, input, textarea, select, span, p, a, div {
+    font-family: var(--font-sans);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
