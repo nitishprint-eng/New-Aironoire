@@ -5,11 +5,11 @@ import { FileText, Image as ImageIcon, Frame, ShieldCheck, Zap, Truck, ArrowRigh
 import { Button } from '@/components/ui/Button';
 
 const HERO_IMAGES = [
-  "https://res.cloudinary.com/drkrtf8mm/image/upload/q_auto/f_auto/v1775399670/ChatGPT_Image_Apr_4_2026_01_31_17_PM_pl90eo.png",
-  "https://res.cloudinary.com/drkrtf8mm/image/upload/q_auto/f_auto/v1775399616/ChatGPT_Image_Apr_3_2026_01_45_14_PM_ej4bvc.png",
-  "https://res.cloudinary.com/drkrtf8mm/image/upload/q_auto/f_auto/v1775399618/ChatGPT_Image_Apr_3_2026_01_50_02_PM_jckeqm.png",
+  "https://res.cloudinary.com/drkrtf8mm/image/upload/q_auto/f_auto/v1775725578/ChatGPT_Image_Apr_9_2026_01_27_59_PM_zfybmt.png",
+  "https://res.cloudinary.com/drkrtf8mm/image/upload/q_auto/f_auto/v1775725543/ChatGPT_Image_Apr_9_2026_01_33_32_PM_njkvpp.png",
+  "https://res.cloudinary.com/drkrtf8mm/image/upload/q_auto/f_auto/v1775554498/arrangement-with-empty-white-frame-indoors_elhw1i.jpg",
   "https://res.cloudinary.com/drkrtf8mm/image/upload/q_auto/f_auto/v1775399632/ChatGPT_Image_Apr_3_2026_02_10_45_PM_hwcyw8.png",
-  "https://res.cloudinary.com/drkrtf8mm/image/upload/q_auto/f_auto/v1775399648/ChatGPT_Image_Apr_3_2026_02_14_59_PM_gxrbmp.png"
+  "https://res.cloudinary.com/drkrtf8mm/image/upload/q_auto/f_auto/v1775399616/ChatGPT_Image_Apr_3_2026_01_45_14_PM_ej4bvc.png"
 ];
 
 const SERVICES = [
@@ -64,7 +64,7 @@ export function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[90vh] w-full overflow-hidden bg-zinc-900">
+      <section className="relative h-[85vh] md:h-[90vh] w-full overflow-hidden bg-[#1a1a1a]">
         {/* Layer 1: Background Image Slider */}
         <div className="absolute inset-0 z-0">
           <AnimatePresence initial={false}>
@@ -80,12 +80,12 @@ export function Home() {
                 >
                   {/* Main Image */}
                   <motion.img 
-                    initial={{ scale: 1.05 }}
+                    initial={{ scale: 1.02 }}
                     animate={{ scale: 1 }}
-                    transition={{ duration: 1.5, ease: "easeInOut" }}
+                    transition={{ duration: 4, ease: "easeOut" }}
                     src={img} 
-                    alt={`Print shop slide ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    alt={`Gallery slide ${index + 1}`}
+                    className="w-full h-full object-cover object-center"
                     referrerPolicy="no-referrer"
                     loading={index === 0 ? "eager" : "lazy"}
                   />
@@ -95,42 +95,41 @@ export function Home() {
           </AnimatePresence>
         </div>
 
-        {/* Layer 2: Dark Gradient Overlay for Readability */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+        {/* Layer 2: Light Dark Overlay for Readability (10-15%) */}
+        <div className="absolute inset-0 z-10 bg-black/10" />
 
         {/* Layer 3: Fixed Content (Outside Slider) */}
         <div className="relative z-20 h-full max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-center text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="max-w-2xl"
+            transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
+            className="max-w-3xl"
           >
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-medium tracking-tight text-white mb-8 leading-[1.2] text-balance">
-              Turn Your Photos Into <br />
-              <span className="italic text-white/90">Beautiful Wall Art</span>
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-heading font-medium tracking-tight text-white mb-6 leading-[1.1] text-balance drop-shadow-sm">
+              Turn Your Photos Into Beautiful Wall Art
             </h1>
-            <p className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/70 mb-12 max-w-lg mx-auto leading-relaxed font-sans font-semibold">
-              Premium frames, posters & prints crafted for your space
+            <p className="text-sm md:text-base text-white/90 mb-10 max-w-xl mx-auto leading-relaxed font-sans font-light tracking-wide drop-shadow-sm">
+              Premium prints crafted for modern spaces
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex justify-center">
               <Link to="/wall-art">
-                <Button className="w-full sm:w-auto text-[10px] uppercase tracking-[0.2em] px-12 py-7 rounded-full bg-white text-[#1a1a1a] hover:bg-[#f5f5f0] transition-all duration-500 border-none shadow-xl font-bold">
-                  Shop Collection
+                <Button className="text-[11px] uppercase tracking-[0.2em] px-10 py-6 rounded-md bg-white text-[#1a1a1a] hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 border-none font-medium">
+                  Shop Now
                 </Button>
               </Link>
             </div>
           </motion.div>
         </div>
 
-        {/* Layer 4: Slider Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-30">
+        {/* Layer 4: Minimal Slider Indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-30">
           {HERO_IMAGES.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                currentSlide === index ? "bg-orange-600 w-8" : "bg-zinc-400/50 hover:bg-zinc-400"
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                currentSlide === index ? "bg-white w-8" : "bg-white/40 hover:bg-white/60 w-1.5"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
